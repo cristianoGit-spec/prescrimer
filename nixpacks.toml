@@ -1,12 +1,22 @@
-# Nixpacks Configuration for Railway
 [phases.setup]
-nixPkgs = ["nodejs-18_x"]
+nixPkgs = ["nodejs_20"]
+aptPkgs = []
 
 [phases.install]
-cmds = ["npm install --production=false"]
+cmds = [
+  "npm ci --production=false",
+  "cd client && npm ci --production=false && cd .."
+]
 
 [phases.build]
-cmds = ["echo 'Backend build complete'"]
+cmds = [
+  "cd client && npm run build && cd ..",
+  "echo 'Build completed - Backend serves frontend from client/dist'"
+]
+
 
 [start]
 cmd = "node server.js"
+
+[env]
+TZ = "America/Sao_Paulo"

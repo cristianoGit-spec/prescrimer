@@ -1,47 +1,21 @@
-# Railway ignore file
-# Arquivos e pastas que não devem ser enviados para o Railway
-
-# Client (frontend - deploy separado no Netlify)
-client/
-
-# Documentação
-docs/
-*.md
-!README.md
-
-# Configurações locais
-.env
+node_modules/
+.git/
+.github/
 .env.local
 .env.*.local
-
-# Logs
-logs/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
 .DS_Store
-Thumbs.db
+database.sqlite
+database.sqlite-*
 
-# Scripts de desenvolvimento local
-INICIAR_SISTEMA_COMPLETO.bat
-PARAR_SISTEMA.bat
-iniciar.bat
-parar.bat
-iniciar.ps1
-parar.ps1
+# Docs e arquivos desnecessários no deploy
+docs/
+scripts/
+WEB/
+*.md
+!README.md
+!package.json
+!package-lock.json
 
-# Netlify
-netlify.toml
-
-# Git
-.git/
-.gitignore
+# Não ignore o client: necessário para build do Vite
+# Removido bloqueios que impediam inclusão de index.html e fontes do client
